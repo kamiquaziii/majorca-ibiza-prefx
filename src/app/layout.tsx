@@ -5,6 +5,7 @@ import {
   Playfair_Display,
   Pinyon_Script,
 } from "next/font/google";
+import { SourceEasterEgg } from "@/components/source-easter-egg";
 import "./globals.css";
 
 const playfair = Playfair_Display({
@@ -61,13 +62,7 @@ export default function RootLayout({
       className={`${playfair.variable} ${cormorant.variable} ${pinyon.variable} ${dmSans.variable} scroll-smooth`}
     >
       <body className="font-sans antialiased">
-        <div
-          hidden
-          dangerouslySetInnerHTML={{
-            __html:
-              "<!-- What are you poking around for? Nothing to see here. Go lock in and get ready for the beach bruh -->",
-          }}
-        />
+        <SourceEasterEgg />
         {children}
       </body>
     </html>
