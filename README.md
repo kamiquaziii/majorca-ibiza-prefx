@@ -11,7 +11,7 @@ Static landing page for the MIT Sloan incoming first-years trip to Majorca and I
 
 ## Security
 
-This site is **fully static** (`output: "export"`). There are no API routes, databases, or server-side form handlers. Captain contacts use `tel:` links only.
+This site is **fully static** (`output: "export"`). There are no API routes, databases, or server-side form handlers. Captain contacts use `tel:` and external Instagram links only.
 
 ## Development
 
@@ -22,18 +22,22 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000).
 
-## Deploy to Vercel
+## Publish (GitHub + Vercel)
 
-1. Push this repo to GitHub.
-2. Import the project in [Vercel](https://vercel.com/new).
-3. Framework preset: **Next.js** (default build `npm run build` works with static export).
-
-Or via CLI:
+From the project root, after [GitHub CLI](https://cli.github.com/) and [Vercel CLI](https://vercel.com/docs/cli) are logged in:
 
 ```bash
-npx vercel
+gh auth login -h github.com
+npx vercel login
+
+./scripts/publish.sh
 ```
 
-## Branch
+Or manually:
 
-Active feature branch: `feature/landing-page`
+```bash
+gh repo create majorca-ibiza-prefx --public --source=. --remote=origin --push
+npx vercel deploy --prod --yes
+```
+
+Expected repo: `https://github.com/kamiquaziii/majorca-ibiza-prefx`
