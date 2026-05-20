@@ -1,7 +1,6 @@
 import { CaptainsSection } from "@/components/captains-section";
 import { ExperiencesSection } from "@/components/experiences-section";
 import { HeroSection } from "@/components/hero-section";
-import { InfoSection } from "@/components/info-section";
 import { JoinSection } from "@/components/join-section";
 import { PricingSection } from "@/components/pricing-section";
 import { SiteFooter } from "@/components/site-footer";
@@ -16,7 +15,6 @@ export default function Home() {
         <ExperiencesSection />
         <PricingSection />
         <JoinSection />
-        <InfoSection />
         <CaptainsSection />
       </main>
       <SiteFooter />

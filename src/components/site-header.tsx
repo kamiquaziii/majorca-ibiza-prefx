@@ -27,24 +27,24 @@ export function SiteHeader() {
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${
         scrolled
-          ? "border-b border-white/10 bg-ocean-950/85 backdrop-blur-md"
-          : "bg-transparent"
+          ? "rule-line border-b bg-cream/92 backdrop-blur-md"
+          : "bg-cream/80 backdrop-blur-sm"
       }`}
     >
-      <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-4 sm:px-8">
+      <div className="page-container flex items-center justify-between py-4 sm:py-5">
         <Link
           href="#top"
-          className="font-display text-sm tracking-[0.35em] text-sand-100 uppercase"
+          className="font-serif text-xl text-slate italic sm:text-2xl"
         >
           Pre-F(x)
         </Link>
 
-        <nav className="hidden items-center gap-8 md:flex" aria-label="Main">
+        <nav className="hidden items-center gap-8 lg:flex" aria-label="Main">
           {navLinks.map((link) => (
             <Link
               key={link.href}
               href={link.href}
-              className="text-xs tracking-[0.2em] text-sand-200/80 uppercase transition-colors hover:text-sunset-300"
+              className="type-kicker transition-colors hover:text-terracotta"
             >
               {link.label}
             </Link>
@@ -53,28 +53,28 @@ export function SiteHeader() {
 
         <button
           type="button"
-          className="rounded-full border border-white/20 p-2.5 text-sand-100 md:hidden"
+          className="rule-line rounded-sm border p-3 text-charcoal lg:hidden"
           aria-expanded={open}
           aria-controls="mobile-menu"
           aria-label={open ? "Close menu" : "Open menu"}
           onClick={() => setOpen((v) => !v)}
         >
-          {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+          {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
         </button>
       </div>
 
       {open && (
         <nav
           id="mobile-menu"
-          className="border-t border-white/10 bg-ocean-950/95 px-5 py-6 md:hidden"
+          className="rule-line border-t bg-cream px-5 py-8 lg:hidden"
           aria-label="Mobile"
         >
-          <ul className="flex flex-col gap-4">
+          <ul className="flex flex-col gap-5">
             {navLinks.map((link) => (
               <li key={link.href}>
                 <Link
                   href={link.href}
-                  className="block py-2 text-sm tracking-[0.2em] text-sand-100 uppercase"
+                  className="type-kicker block py-1 text-charcoal"
                   onClick={() => setOpen(false)}
                 >
                   {link.label}

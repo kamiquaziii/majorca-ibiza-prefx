@@ -1,12 +1,29 @@
 import type { Metadata, Viewport } from "next";
-import { Cormorant_Garamond, DM_Sans } from "next/font/google";
+import {
+  Cormorant_Garamond,
+  DM_Sans,
+  Playfair_Display,
+  Pinyon_Script,
+} from "next/font/google";
 import "./globals.css";
+
+const playfair = Playfair_Display({
+  variable: "--font-playfair",
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800", "900"],
+});
 
 const cormorant = Cormorant_Garamond({
   variable: "--font-cormorant",
   subsets: ["latin"],
   weight: ["300", "400", "500", "600"],
   style: ["normal", "italic"],
+});
+
+const pinyon = Pinyon_Script({
+  variable: "--font-pinyon",
+  subsets: ["latin"],
+  weight: ["400"],
 });
 
 const dmSans = DM_Sans({
@@ -22,13 +39,13 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Majorca & Ibiza Pre-F(x) 2026",
     description:
-      "A summer on the Balearic Sea. Six nights, two islands, sixty Sloanies.",
+      "A summer on the Balearic Sea. Six nights, two islands, infinite stories.",
     type: "website",
   },
 };
 
 export const viewport: Viewport = {
-  themeColor: "#071422",
+  themeColor: "#f5ebe0",
   width: "device-width",
   initialScale: 1,
 };
@@ -41,7 +58,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${cormorant.variable} ${dmSans.variable} scroll-smooth`}
+      className={`${playfair.variable} ${cormorant.variable} ${pinyon.variable} ${dmSans.variable} scroll-smooth`}
     >
       <body className="font-sans antialiased">{children}</body>
     </html>

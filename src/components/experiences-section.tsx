@@ -1,75 +1,59 @@
 "use client";
 
-import { ExperienceIcon } from "@/components/experience-icon";
+import { ExperienceCard } from "@/components/experience-card";
 import { FadeIn, StaggerChildren, StaggerItem } from "@/components/ui/fade-in";
-import { experiences, islandSplit } from "@/lib/content";
-
-const islandBadge: Record<string, string> = {
-  majorca: "Majorca",
-  ibiza: "Ibiza",
-  both: "Both Islands",
-};
-
-const islandColors: Record<string, string> = {
-  majorca: "bg-teal-500/15 text-teal-200 border-teal-400/20",
-  ibiza: "bg-violet-500/15 text-violet-200 border-violet-400/20",
-  both: "bg-sunset-400/15 text-sunset-200 border-sunset-400/20",
-};
+import { SectionHeading } from "@/components/ui/section-heading";
+import {
+  experienceGroups,
+  experiencesForIsland,
+} from "@/lib/content";
 
 export function ExperiencesSection() {
   return (
     <section
       id="experiences"
-      className="scroll-mt-20 bg-sand-50 py-20 text-ocean-950 sm:py-28"
+      className="scroll-mt-20 border-t rule-line bg-cream-dark/35 py-20 text-charcoal sm:py-28"
     >
-      <div className="mx-auto max-w-6xl px-5 sm:px-8">
-        <FadeIn className="text-center">
-          <p className="text-xs tracking-[0.4em] text-ocean-600/70 uppercase">
-            What&apos;s inside
-          </p>
-          <h2 className="font-display mt-4 text-4xl font-light tracking-tight sm:text-5xl">
-            The full itinerary
-          </h2>
+      <div className="page-container">
+        <FadeIn>
+          <SectionHeading title="What's inside" />
         </FadeIn>
 
-        <FadeIn delay={0.1} className="mt-10 flex justify-center gap-6 sm:gap-12">
-          {islandSplit.map((item) => (
-            <div key={item.island} className="text-center">
-              <p className="text-[0.65rem] tracking-[0.35em] text-ocean-500/80 uppercase">
-                {item.island}
-              </p>
-              <p className="font-display mt-1 text-3xl text-ocean-900">
-                {item.nights}{" "}
-                <span className="text-lg text-ocean-500/80">nights</span>
-              </p>
-            </div>
-          ))}
-        </FadeIn>
+        <div className="mt-10 space-y-10">
+          {experienceGroups.map((group, groupIndex) => {
+            const items = experiencesForIsland(group.id);
 
-        <StaggerChildren className="mt-14 grid gap-4 sm:grid-cols-2 lg:gap-5">
-          {experiences.map((item) => (
-            <StaggerItem key={item.title}>
-              <article className="group flex h-full flex-col rounded-2xl border border-ocean-900/8 bg-white p-6 shadow-sm transition-shadow hover:shadow-md sm:p-7">
-                <div className="flex items-start justify-between gap-4">
-                  <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-ocean-950 text-sunset-300">
-                    <ExperienceIcon name={item.icon} />
+            return (
+              <FadeIn key={group.id} delay={groupIndex * 0.05}>
+                <div>
+                  <div className="rule-line flex items-baseline justify-between gap-4 border-b pb-3">
+                    <h3 className="font-display text-xl font-semibold sm:text-2xl">
+                      {group.title}
+                    </h3>
+                    {group.nights ? (
+                      <p className="type-label shrink-0">
+                        {group.nights} nights
+                      </p>
+                    ) : (
+                      <p className="type-label shrink-0">Both Islands</p>
+                    )}
                   </div>
-                  <span
-                    className={`rounded-full border px-2.5 py-1 text-[0.6rem] tracking-[0.15em] uppercase ${islandColors[item.island]}`}
-                  >
-                    {islandBadge[item.island]}
-                  </span>
+
+                  <StaggerChildren className="rule-line border-b">
+                    {items.map((item) => (
+                      <StaggerItem
+                        key={item.title}
+                        className="rule-line border-b px-1 py-7 last:border-b-0 sm:py-8"
+                      >
+                        <ExperienceCard item={item} showTag />
+                      </StaggerItem>
+                    ))}
+                  </StaggerChildren>
                 </div>
-                <h3 className="mt-5 font-display text-xl leading-snug text-ocean-950">
-                  {item.title}
-                </h3>
-                <p className="mt-3 flex-1 text-sm leading-relaxed text-ocean-700/85">
-                  {item.description}
-                </p>
-              </article>
-            </StaggerItem>
-          ))}
-        </StaggerChildren>
+              </FadeIn>
+            );
+          })}
+        </div>
       </div>
     </section>
   );

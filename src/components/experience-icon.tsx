@@ -29,5 +29,5 @@ const iconMap: Record<ExperienceIconKey, LucideIcon> = {
 
 export function ExperienceIcon({ name }: { name: ExperienceIconKey }) {
   const Icon = iconMap[name];
-  return <Icon className="h-5 w-5" strokeWidth={1.5} aria-hidden />;
+  return <Icon className="h-5 w-5 sm:h-[1.35rem] sm:w-[1.35rem]" strokeWidth={1.25} aria-hidden />;
 }
