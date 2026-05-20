@@ -74,16 +74,22 @@ export function HeroSection() {
 
         <FadeIn delay={0.55}>
           <RuleBar>
-            <div className="type-kicker flex flex-wrap items-center justify-center gap-x-3 gap-y-2 text-center">
-              <span>{tripMeta.dates.start}</span>
-              <span className="text-charcoal/25" aria-hidden>
-                ·
+            <div
+              className="flex items-center justify-center gap-5 py-3 sm:gap-10 sm:py-4"
+              aria-label={`Trip dates ${tripMeta.dates.start} through ${tripMeta.dates.end}`}
+            >
+              <span className="font-display text-2xl font-bold tracking-wide text-terracotta sm:text-3xl">
+                {tripMeta.dates.start}
               </span>
-              <span>{tripMeta.dates.route.join(" · ")}</span>
-              <span className="text-charcoal/25" aria-hidden>
-                ·
+              <span
+                className="font-serif text-lg text-charcoal/35 sm:text-xl"
+                aria-hidden
+              >
+                —
               </span>
-              <span>{tripMeta.dates.end}</span>
+              <span className="font-display text-2xl font-bold tracking-wide text-terracotta sm:text-3xl">
+                {tripMeta.dates.end}
+              </span>
             </div>
           </RuleBar>
           <div className="relative">
