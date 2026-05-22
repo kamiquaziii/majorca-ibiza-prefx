@@ -100,10 +100,10 @@ export function HeroSection() {
 
         <FadeIn delay={0.65} className="mt-10 flex justify-center">
           <Link
-            href="#experiences"
+            href="#moodboard"
             className="type-kicker inline-flex flex-col items-center gap-2 transition-colors hover:text-terracotta"
           >
-            <span>What&apos;s inside</span>
+            <span>See the vibe</span>
             <ArrowDown className="h-5 w-5" aria-hidden />
           </Link>
         </FadeIn>

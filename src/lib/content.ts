@@ -117,6 +117,8 @@ export const experiences = [
   },
 ] as const;
 
+export { moodboardImages, type MoodboardLayout } from "@/lib/moodboard";
+
 export const pricing = {
   headline: "The Cost",
   total: "$2,300",
@@ -170,6 +172,7 @@ export const captains = [
 ] as const;
 
 export const navLinks = [
+  { href: "#moodboard", label: "Vibe" },
   { href: "#experiences", label: "What's Inside" },
   { href: "#pricing", label: "Pricing" },
   { href: "#join", label: "How To Join" },
