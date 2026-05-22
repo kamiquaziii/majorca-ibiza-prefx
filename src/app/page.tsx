@@ -6,10 +6,11 @@ import { JoinSection } from "@/components/join-section";
 import { PricingSection } from "@/components/pricing-section";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
+import { SiteShell } from "@/components/site-shell";
 
 export default function Home() {
   return (
-    <>
+    <SiteShell>
       <SiteHeader />
       <main>
         <HeroSection />
@@ -20,6 +21,6 @@ export default function Home() {
         <CaptainsSection />
       </main>
       <SiteFooter />
-    </>
+    </SiteShell>
   );
 }

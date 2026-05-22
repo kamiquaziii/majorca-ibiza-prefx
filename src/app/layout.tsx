@@ -5,6 +5,7 @@ import {
   Playfair_Display,
   Pinyon_Script,
 } from "next/font/google";
+import { Providers } from "@/components/providers";
 import { SourceEasterEgg } from "@/components/source-easter-egg";
 import "./globals.css";
 
@@ -63,7 +64,7 @@ export default function RootLayout({
     >
       <body className="font-sans antialiased">
         <SourceEasterEgg />
-        {children}
+        <Providers>{children}</Providers>
       </body>
     </html>
   );

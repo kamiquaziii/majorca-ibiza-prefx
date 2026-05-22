@@ -3,6 +3,7 @@
 import { Menu, X } from "lucide-react";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { SoundToggle } from "@/components/sound-toggle";
 import { navLinks } from "@/lib/content";
 
 export function SiteHeader() {
@@ -39,28 +40,32 @@ export function SiteHeader() {
           Pre-F(x)
         </Link>
 
-        <nav className="hidden items-center gap-8 lg:flex" aria-label="Main">
-          {navLinks.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className="type-kicker transition-colors hover:text-terracotta"
-            >
-              {link.label}
-            </Link>
-          ))}
-        </nav>
+        <div className="flex items-center gap-3 sm:gap-4">
+          <nav className="hidden items-center gap-8 lg:flex" aria-label="Main">
+            {navLinks.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className="type-kicker transition-colors hover:text-terracotta"
+              >
+                {link.label}
+              </Link>
+            ))}
+          </nav>
 
-        <button
-          type="button"
-          className="rule-line rounded-sm border p-3 text-charcoal lg:hidden"
+          <SoundToggle />
+
+          <button
+            type="button"
+            className="rule-line rounded-sm border p-3 text-charcoal lg:hidden"
           aria-expanded={open}
           aria-controls="mobile-menu"
           aria-label={open ? "Close menu" : "Open menu"}
           onClick={() => setOpen((v) => !v)}
         >
-          {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-        </button>
+            {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+          </button>
+        </div>
       </div>
 
       {open && (
