@@ -49,7 +49,7 @@ const lines = [
   center(""),
   rule("-"),
   star(""),
-  star("MIT Sloan Pre-F(x) 2026  |  Aug 23 --> Aug 29"),
+  star("MIT Sloan Pre-F(x) 2026  |  Aug 23 — Aug 29"),
   star(""),
   star("You found the secret. Respect. Close DevTools. Go pack:"),
   star("[x] sunscreen  [x] swimsuit  [x] stamina  [x] sunglasses"),
