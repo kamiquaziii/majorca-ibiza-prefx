@@ -6,6 +6,9 @@ import { useEffect, useState } from "react";
 import { SoundToggle } from "@/components/sound-toggle";
 import { navLinks } from "@/lib/content";
 
+const navLinkClass =
+  "type-kicker whitespace-nowrap text-[0.6875rem] tracking-[0.14em] transition-colors hover:text-terracotta sm:text-[0.75rem] sm:tracking-[0.16em]";
+
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -32,31 +35,42 @@ export function SiteHeader() {
           : "bg-cream/80 backdrop-blur-sm"
       }`}
     >
-      <div className="page-container grid grid-cols-[1fr_auto_1fr] items-center py-4 sm:py-5">
+      <div className="page-container relative flex min-h-14 items-center py-4 sm:min-h-[4.25rem] sm:py-5">
         <Link
           href="#top"
-          className="justify-self-start whitespace-nowrap font-serif text-xl leading-none text-slate italic sm:text-2xl"
+          className="relative z-10 shrink-0 whitespace-nowrap font-serif text-xl leading-none text-slate italic sm:text-2xl"
         >
           Pre-F(x)
         </Link>
 
+        {/* Desktop nav — truly centered in the bar */}
         <nav
-          className="hidden items-center justify-center gap-8 lg:flex"
+          className="pointer-events-none absolute top-1/2 left-1/2 hidden -translate-x-1/2 -translate-y-1/2 items-center gap-5 lg:pointer-events-auto lg:flex xl:gap-7"
           aria-label="Main"
         >
           {navLinks.map((link) => (
             <Link
               key={link.href}
               href={link.href}
-              className="type-kicker whitespace-nowrap transition-colors hover:text-terracotta"
+              className={navLinkClass}
             >
               {link.label}
             </Link>
           ))}
         </nav>
 
-        <div className="flex items-center justify-end gap-3 sm:gap-4">
-          <SoundToggle />
+        {/* Mobile / tablet: sound centered in the bar */}
+        <div className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 lg:hidden">
+          <div className="pointer-events-auto">
+            <SoundToggle />
+          </div>
+        </div>
+
+        {/* Right cluster — always aligned end */}
+        <div className="relative z-10 ml-auto flex shrink-0 items-center gap-3 pl-3 sm:gap-4">
+          <div className="hidden lg:block">
+            <SoundToggle />
+          </div>
 
           <button
             type="button"
@@ -74,22 +88,24 @@ export function SiteHeader() {
       {open && (
         <nav
           id="mobile-menu"
-          className="rule-line border-t bg-cream px-5 py-8 lg:hidden"
+          className="rule-line border-t bg-cream lg:hidden"
           aria-label="Mobile"
         >
-          <ul className="flex flex-col gap-5">
-            {navLinks.map((link) => (
-              <li key={link.href}>
-                <Link
-                  href={link.href}
-                  className="type-kicker block py-1 text-charcoal"
-                  onClick={() => setOpen(false)}
-                >
-                  {link.label}
-                </Link>
-              </li>
-            ))}
-          </ul>
+          <div className="page-container py-8">
+            <ul className="flex flex-col items-center gap-5 text-center">
+              {navLinks.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className="type-kicker block py-1 text-charcoal"
+                    onClick={() => setOpen(false)}
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
         </nav>
       )}
     </header>

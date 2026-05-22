@@ -15,8 +15,8 @@ export function HeroSection() {
       id="top"
       className="relative min-h-[100svh] bg-cream text-charcoal"
     >
-      <div className="page-container relative flex min-h-[100svh] flex-col pt-24 pb-10 sm:pt-28">
-        <FadeIn className="mt-4">
+      <div className="page-container relative mx-auto flex w-full min-h-[100svh] flex-col pt-[5.5rem] pb-10 sm:pt-28">
+        <FadeIn className="mt-4 w-full">
           <Masthead />
         </FadeIn>
 
@@ -29,12 +29,12 @@ export function HeroSection() {
             <p className="type-kicker font-display tracking-[0.45em]">
               {tripMeta.dates.year.split("").join(" · ")}
             </p>
-            <h1 className="font-display mt-6 text-[clamp(2.75rem,11vw,4.75rem)] leading-[0.92] font-black tracking-tight uppercase">
-              Majorca{" "}
-              <span className="font-accent text-[1.15em] font-normal normal-case text-terracotta">
+            <h1 className="font-display mx-auto mt-6 flex flex-col items-center text-[clamp(2.75rem,11vw,4.75rem)] leading-[0.92] font-black tracking-tight uppercase">
+              <span>Majorca</span>
+              <span className="font-accent my-0.5 text-[0.55em] font-normal normal-case text-terracotta">
                 &
-              </span>{" "}
-              Ibiza
+              </span>
+              <span>Ibiza</span>
             </h1>
             <p className="font-serif mt-4 text-[1.75rem] text-slate italic sm:text-[2rem]">
               Pre-F(x)
