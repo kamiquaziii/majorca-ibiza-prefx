@@ -32,37 +32,40 @@ export function SiteHeader() {
           : "bg-cream/80 backdrop-blur-sm"
       }`}
     >
-      <div className="page-container flex items-center justify-between py-4 sm:py-5">
+      <div className="page-container grid grid-cols-[1fr_auto_1fr] items-center py-4 sm:py-5">
         <Link
           href="#top"
-          className="font-serif text-xl text-slate italic sm:text-2xl"
+          className="justify-self-start whitespace-nowrap font-serif text-xl leading-none text-slate italic sm:text-2xl"
         >
           Pre-F(x)
         </Link>
 
-        <div className="flex items-center gap-3 sm:gap-4">
-          <nav className="hidden items-center gap-8 lg:flex" aria-label="Main">
-            {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className="type-kicker transition-colors hover:text-terracotta"
-              >
-                {link.label}
-              </Link>
-            ))}
-          </nav>
+        <nav
+          className="hidden items-center justify-center gap-8 lg:flex"
+          aria-label="Main"
+        >
+          {navLinks.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              className="type-kicker whitespace-nowrap transition-colors hover:text-terracotta"
+            >
+              {link.label}
+            </Link>
+          ))}
+        </nav>
 
+        <div className="flex items-center justify-end gap-3 sm:gap-4">
           <SoundToggle />
 
           <button
             type="button"
             className="rule-line rounded-sm border p-3 text-charcoal lg:hidden"
-          aria-expanded={open}
-          aria-controls="mobile-menu"
-          aria-label={open ? "Close menu" : "Open menu"}
-          onClick={() => setOpen((v) => !v)}
-        >
+            aria-expanded={open}
+            aria-controls="mobile-menu"
+            aria-label={open ? "Close menu" : "Open menu"}
+            onClick={() => setOpen((v) => !v)}
+          >
             {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
           </button>
         </div>

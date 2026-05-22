@@ -19,7 +19,7 @@ export function SoundToggle() {
       onClick={toggle}
       aria-pressed={isPlaying}
       aria-label={isPlaying ? "Turn sound off" : "Play background music"}
-      className={`type-kicker inline-flex items-center gap-2 rounded-sm border px-3 py-2 transition-colors ${
+      className={`type-kicker inline-flex shrink-0 items-center gap-2 whitespace-nowrap rounded-sm border px-3 py-2 transition-colors ${
         isPlaying
           ? "rule-line border-terracotta/40 bg-terracotta/8 text-terracotta"
           : "rule-line border-charcoal/15 text-charcoal hover:border-terracotta/35 hover:text-terracotta"

@@ -15,7 +15,7 @@ export function CaptainsSection() {
     >
       <div className="page-container">
         <FadeIn>
-          <SectionHeading title="Contact your captains" />
+          <SectionHeading title="Contact your leads" />
         </FadeIn>
 
         <StaggerChildren className="mt-10">

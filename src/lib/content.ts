@@ -175,8 +175,8 @@ export const navLinks = [
   { href: "#moodboard", label: "Vibe" },
   { href: "#experiences", label: "What's Inside" },
   { href: "#pricing", label: "Pricing" },
-  { href: "#join", label: "How To Join" },
-  { href: "#captains", label: "Captains" },
+  { href: "#join", label: "Matching" },
+  { href: "#captains", label: "Leads" },
 ] as const;
 
 export function experiencesForIsland(island: ExperienceIsland) {
