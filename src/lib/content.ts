@@ -124,8 +124,8 @@ export const pricing = {
   total: "$2,300",
   perPerson: "/ person",
   breakdown: [
-    { label: "Sloan Groups", amount: "$2,150" },
-    { label: "Venmo", amount: "$150" },
+    { label: "Sloan Groups", amount: "$1,875" },
+    { label: "Venmo", amount: "$425" },
   ],
   note: "All hotels, transport, events, and tickets above.",
   flightsNote:
